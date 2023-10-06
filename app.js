@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+const { title } = require('process');
 
 const app = express();
 
@@ -17,11 +18,10 @@ const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pelle
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
 
-
-
+const posts = [];
 
 app.get('/', (req, res) => {
-    res.render('home', { FirstData: homeStartingContent });
+    res.render('home', { FirstData: homeStartingContent, posts: posts });
 });
 
 app.get("/about", (req,res)=>{
@@ -31,6 +31,33 @@ app.get("/about", (req,res)=>{
     res.render('contact', {ThirdData: contactContent})
   })
   
+  app.get("/compose", (req,res)=>{
+    res.render('compose')
+  })
+
+
+  app.get("/posts/:postName", (req,res)=>{
+    const requestedTitle = req.params.postName;
+
+ 
+
+
+});
+
+app.post("/compose", (req,res)=>{
+    const pContent = {
+        title: req.body.postTitle,
+        content: req.body.postBody
+    }
+    posts.push(pContent);
+  
+    res.redirect("/");
+})
+
+app.get("/post/:postName", (req,res)=>{
+  console.log(req.params.postName);
+
+})
 
 app.listen(8000, () => {
     console.log('Server is running on port 8000'); // Update the port number here
