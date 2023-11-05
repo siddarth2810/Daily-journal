@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const { title } = require('process');
+const path = require('path'); // Import the path module
 
 const app = express();
 
