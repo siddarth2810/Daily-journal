@@ -1,4 +1,4 @@
-# journal-project
+# Daily-journal
 A simple journal web app where you can post everyday. 
 
 ## How to install
@@ -9,6 +9,12 @@ A simple journal web app where you can post everyday.
 
 ## How to use
 - In the `localhost:8000/compose` you can add the title and the content which will get posted in the home route
+
+## Tech Stack 
+Daily Journal uses the following technologies:
+-  [EJS](https://ejs.co/#promo) - a simple templating language that lets you generate HTML markup with plain JavaScript.
+-  [Express.js](https://expressjs.com/)
+-  [Node.js](https://nodejs.org/en)
 
 ## Contribution
 
